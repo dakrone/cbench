@@ -1,0 +1,15 @@
+cbench is a small helper library for doing benchmarking.
+
+Here's some sample output:
+
+cbench=> (cbench-pp 50 #(Thread/sleep 15))
+-----------------------------------
+| avg    | 15.22 ms
+| min    | 15.0 ms
+| max    | 19.0 ms
+| stddev | 0.614119729717384 ms
+| total  | 784 ms
+-----------------------------------
+nil
+
+cbench provides 2 function, cbench and cbench-pp. More documentation to come.
