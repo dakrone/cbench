@@ -1,4 +1,5 @@
-(ns org.clojars.thnetos/cbench
+;(ns org.clojars.thnetos/cbench ; which one?
+(ns cbench ; which one?
   (:import (java.util Date))
   (:use [clojure.contrib.str-utils :only (str-join)]))
 
@@ -51,8 +52,8 @@
          totaltime] (cbench times f)]
     (println (str-join "" (repeat 35 "-")))
     (println (str "| avg    | " (float avg) " ms"))
-    (println (str "| max    | " tmax " ms"))
     (println (str "| min    | " tmin " ms"))
+    (println (str "| max    | " tmax " ms"))
     (println (str "| stddev | " stddev " ms"))
     (println (str "| total  | " totaltime " ms"))
     (println (str-join "" (repeat 35 "-")))
