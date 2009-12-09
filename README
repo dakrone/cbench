@@ -12,4 +12,32 @@ cbench=> (cbench-pp 50 #(Thread/sleep 15))
 -----------------------------------
 nil
 
-cbench provides 2 function, cbench and cbench-pp. More documentation to come.
+cbench provides 2 function, cbench and cbench-pp.
+
+First, you'll need to be leinigen - http://github.com/technomancy/leiningen ,
+when leinigen is installed, use "lein jar" to build the cbench jar.
+
+Place the cbench.jar file somewhere in your java classpath. From the Clojure
+REPL you should be able to access the cbench and cbench-pp functions:
+
+user=> (use 'cbench)
+nil
+user=> (cbench 50 #(Thread/sleep 10))
+[10.06 11.0 10.0 0.3392674720850722 509]
+user=> (cbench-pp 50 #(Thread/sleep 10))
+-----------------------------------
+| avg    | 10.1 ms
+| min    | 10.0 ms
+| max    | 11.0 ms
+| stddev | 0.4285717918757761 ms
+| total  | 509 ms
+-----------------------------------
+nil
+
+As you can see, cbench-pp is just pretty formatting for cbench.
+
+cbench and cbench-pp both take a number of iterations (50 in the example)
+and a no-argument function, which is benchmarked the number of times given.
+
+Use it to test how much reflection helps, or whether there's a lot of
+variance between your function call times.
