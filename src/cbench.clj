@@ -69,13 +69,25 @@
   ; Example: Compare clojure abs and Math/abs
 
   (defn abs
-  "Returns the absolute value of x"
-  [#^Double x]
-  (if (neg? x)
-  (- x)
-  x))
+    "Returns the absolute value of x"
+    [#^Double x]
+    (if (neg? x)
+      (- x)
+      x))
 
   (cbench-pp 100000 #(abs (- 50 (rand-int 100))))
   (cbench-pp 100000 #(Math/abs (double (- 50 (rand-int 100)))))
 
+  ; Example output:
+
+  user=>   (cbench-pp 50 #(Thread/sleep 15))
+  -----------------------------------
+  | avg    | 15.16 ms
+  | min    | 15.0 ms
+  | max    | 16.0 ms
+  | stddev | 0.5237228354849561 ms
+  | total  | 758 ms
+  -----------------------------------
+  nil
+  
 )
