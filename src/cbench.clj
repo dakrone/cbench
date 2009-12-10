@@ -30,7 +30,7 @@
 
 (defn cbench
   "Return a sequence of benchmark values for a number of times and a function.
-  Returns: [average maximum minimum standard-deviation total]"
+  Returns: [average minimum maximum standard-deviation total]"
   [times f]
   (let [functions (repeat times f)
         start     (timenow)
